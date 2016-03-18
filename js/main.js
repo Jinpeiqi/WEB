@@ -29,6 +29,12 @@ var app = angular.module("myApp", ["ngRoute"])
         $scope.Carousel_2=Carousel_2;
         $scope.Carousel_3=Carousel_3;
 
+        var music={
+            name:"1",
+            scr:"scr/music/1.mp3"
+        };
+        $scope.music=music;
+
     })
     .config(function($routeProvider){
         $routeProvider
@@ -38,6 +44,10 @@ var app = angular.module("myApp", ["ngRoute"])
             })
             .when("/music",{
                 templateUrl:"Templates/Music.html",
+                controller:"myController"
+            })
+            .when("/",{
+                templateUrl:"Templates/home.html",
                 controller:"myController"
             })
     });
