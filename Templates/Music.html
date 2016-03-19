@@ -6,7 +6,7 @@
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
         <div>
             <audio id="player" controls>
-                <source ng-src="{{music.scr}}" type="audio/mpeg">
+                <source src="{{playing}}" type="audio/mpeg">
             </audio>
             <button id="playing_button" type="button" class="btn btn-default" aria-label="Left Align">
                 <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
@@ -14,6 +14,22 @@
             <button id="stop_button" type="button" class="btn btn-default" aria-label="Left Align">
                 <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
             </button>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Music</th>
+                    <th>Author</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="music in music">
+                    <td>{{music.name}}</td>
+                    <td>{{music.author}}</td>
+                    <td>{{music.time}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

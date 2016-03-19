@@ -29,11 +29,20 @@ var app = angular.module("myApp", ["ngRoute"])
         $scope.Carousel_2=Carousel_2;
         $scope.Carousel_3=Carousel_3;
 
-        var music={
-            name:"1",
+        var music=[{
+            name:"music_1",
+            author:"Jinpeiqi",
+            time:"4:17",
             scr:"scr/music/1.mp3"
-        };
+        },{
+            name:"music_2",
+            author:"Jinpeiqi",
+            time:"5:19",
+            scr:"scr/music/2.mp3"
+        }];
         $scope.music=music;
+        var playing=music[0].scr;
+        $scope.playing=playing;
 
     })
     .config(function($routeProvider){
