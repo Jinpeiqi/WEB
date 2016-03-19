@@ -41,8 +41,8 @@ var app = angular.module("myApp", ["ngRoute"])
             scr:"scr/music/2.mp3"
         }];
         $scope.music=music;
-        var playing=music[0].scr;
-        $scope.playing=playing;
+        //var playing=music[0].scr;
+       // $scope.playing=playing;
 
     })
     .config(function($routeProvider){
