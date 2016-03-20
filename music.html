@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html  ng-app="myApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery-1.12.1.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/MyCSS.css">
+    <script src="js/main.js"></script>
+    <script src="js/media_player.js"></script>
+    <title>Jinpeiqi</title>
+</head>
+<body ng-controller="myController">
+<div id="Menu">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/home">Jin Peiqi</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav ">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="#contact">Video</a></li>
+                    <li class="dropdown">
+                        <a href="#/home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                    <li class="Sign_in">
+                        <button class="btn btn-success">Sign in</button>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+</div>
+<div class="jumbotron" style="margin-top:50px" ng-controller="AudioController">
+    <div class="container">
+        <h1>Music, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60.5" aria-valuemin="0" aria-valuemax="100" ng-style="{width :progress_bar+'%'}">
+                {{progress_bar}}%
+            </div>
+        </div>
+        <div style="margin-left: 95%">{{playedMinutes}}:{{playedSeconds}}/{{totalMinutes}}:{{totalSeconds}}</div>
+        <div>
+            <div style="text-align:center">
+                <button id="backward_button" type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+                </button>
+                <button id="playing_button" type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                </button>
+                <button id="pause_button" type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                </button>
+                <button id="stop_button" type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+                </button>
+                <button id="forward_button" type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+                </button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Track</th>
+                    <th>Music</th>
+                    <th>Author</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="{{'music_'+$index}}" ng-repeat="music in music" ng-click="play_audio(music)">
+                    <td>{{'music_'+$index}}</td>
+                    <td>{{music.name}}</td>
+                    <td>{{music.author}}</td>
+                </tr>
+                {{music.scr}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

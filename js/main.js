@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ["ngRoute"])
+var app = angular.module("myApp", [/*"ngRoute"*/])
     .controller("myController", function($scope) {
         var Carousel_1 =
         {
@@ -38,14 +38,49 @@ var app = angular.module("myApp", ["ngRoute"])
         var music = [{
             name: "music_1",
             author: "Jinpeiqi",
-            time: "4:17",
             scr: "scr/music/1.mp3"
         }, {
             name: "music_2",
             author: "Jinpeiqi",
-            time: "5:19",
             scr: "scr/music/2.mp3"
-        }];
+        }, {
+            name: "music_3",
+            author: "Jinpeiqi",
+            scr: "scr/music/3.mp3"
+        }, {
+            name: "music_4",
+            author: "Jinpeiqi",
+            scr: "scr/music/4.mp3"
+        }, {
+            name: "music_5",
+            author: "Jinpeiqi",
+            scr: "scr/music/5.mp3"
+        }, {
+            name: "music_6",
+            author: "Jinpeiqi",
+            scr: "scr/music/6.mp3"
+        }, {
+            name: "music_7",
+            author: "Jinpeiqi",
+            scr: "scr/music/7.mp3"
+        }, {
+            name: "music_8",
+            author: "Jinpeiqi",
+            scr: "scr/music/8.mp3"
+        }, {
+            name: "music_9",
+            author: "Jinpeiqi",
+            scr: "scr/music/9.mp3"
+        }, {
+            name: "music_10",
+            author: "Jinpeiqi",
+            scr: "scr/music/10.mp3"
+        }, {
+            name: "music_11",
+            author: "Jinpeiqi",
+            scr: "scr/music/11.mp3"
+        }
+        ];
         var audio_url;
         audio_url=music[0].scr;
         $scope.audio_url=audio_url;
@@ -57,7 +92,13 @@ var app = angular.module("myApp", ["ngRoute"])
         $interval(function(){
             $scope.current_time=audio.currentTime;
             $scope.progress_bar=0;
-            $scope.progress_bar=audio.currentTime/audio.duration*100;
+            $scope.playedMinutes=0;
+            $scope.playedSeconds=0;
+            $scope.progress_bar=Math.floor(audio.currentTime/audio.duration*100);
+            $scope.playedMinutes=parseInt(audio.currentTime/60);
+            $scope.playedSeconds=parseInt(audio.currentTime%60);
+            $scope.totalMinutes=parseInt(audio.duration/60);
+            $scope.totalSeconds=parseInt(audio.duration%60);
         },1000);
          $scope.play_audio=function(music) {
             //alert(audio.duration);
@@ -96,22 +137,18 @@ var app = angular.module("myApp", ["ngRoute"])
             $("#playing_button").show();
         });
     })
-    .config(function($routeProvider){
+   /* .config(function($routeProvider){
         $routeProvider
             .when("/home",{
                 templateUrl:"Templates/home.html",
-                controller:"myController"
-            })
-            .when("/music",{
-                templateUrl:"Templates/Music.html",
                 controller:"myController"
             })
             .when("/",{
                 templateUrl:"Templates/home.html",
                 controller:"myController"
             })
-            .when(" ",{
+            .when("",{
                 templateUrl:"Templates/home.html",
                 controller:"myController"
             })
-    });
+    });*/
