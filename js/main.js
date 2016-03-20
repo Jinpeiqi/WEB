@@ -53,11 +53,14 @@ var app = angular.module("myApp", ["ngRoute"])
         var audio;
         audio=new Audio(audio_url);
         var current_time=audio.currentTime;
+        $scope.progress_bar=audio.currentTime/audio.duration;
         $interval(function(){
             $scope.current_time=audio.currentTime;
+            $scope.progress_bar=0;
+            $scope.progress_bar=audio.currentTime/audio.duration*100;
         },1000);
          $scope.play_audio=function(music) {
-            alert(audio.duration);
+            //alert(audio.duration);
             audio.pause();
             //audio.load();//fuck chrome
             $scope.audio_url=music.scr;
