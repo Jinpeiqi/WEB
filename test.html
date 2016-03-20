@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("#box").animate({margin: "300px"});
+            });
+            $("#btn2").click(function(){
+                $("#box").animate({margin: "6px"});
+            });
+        });
+    </script>
 </head>
 <body>
-<audio id="myAudio" controls>
-    <source src="scr/music/1.mp3" type="audio/ogg">
-    Your browser does not support the audio element.
-</audio><br>
 
-<button onclick="getCurTime()" type="button">Get current time position</button>
-<button id="stop" type="button">Set time position to 1 second</button>
+<button id="btn1">Animate height</button>
+<button id="btn2">Reset height</button>
 
-<script>
-    var x = document.getElementById("myAudio");
-    function getCurTime() {
-        alert(x.currentTime);
-    }
-    document.getElementById("stop").addEventListener("click",alert("123"));
-    function setCurTime() {
-        x.currentTime = 1;
-    }
-</script>
+<div id="box" style="background:#98bf21;height:100px;width:200px;margin-top:400px;"></div>
+
 </body>
 </html>

@@ -110,4 +110,8 @@ var app = angular.module("myApp", ["ngRoute"])
                 templateUrl:"Templates/home.html",
                 controller:"myController"
             })
+            .when(" ",{
+                templateUrl:"Templates/home.html",
+                controller:"myController"
+            })
     });

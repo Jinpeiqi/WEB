@@ -9,6 +9,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/MyCSS.css">
     <script src="js/main.js"></script>
+    <script src="js/media_player.js"></script>
     <title>Jinpeiqi</title>
 </head>
 <body ng-controller="myController">
@@ -30,7 +31,7 @@
                         <li><a href="#/music">Music</a></li>
                         <li><a href="#contact">Video</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <a href="#/home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
@@ -47,7 +48,9 @@
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
+            <div id="sidebar" style="background:#98bf21;height:100px;width:200px;margin-top:1000px;position:absolute"></div>
         </nav>
+
     </div>
     <ng-view></ng-view>
 </body>
