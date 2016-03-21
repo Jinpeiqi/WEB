@@ -1,4 +1,4 @@
-var app = angular.module("myApp", [/*"ngRoute"*/])
+var app = angular.module("myApp", ["ngRoute"])
     .controller("myController", function($scope) {
         var Carousel_1 =
         {
@@ -99,7 +99,7 @@ var app = angular.module("myApp", [/*"ngRoute"*/])
             $scope.playedSeconds=parseInt(audio.currentTime%60);
             $scope.totalMinutes=parseInt(audio.duration/60);
             $scope.totalSeconds=parseInt(audio.duration%60);
-        },1000);
+        },100);
          $scope.play_audio=function(music) {
             //alert(audio.duration);
             audio.pause();
@@ -137,18 +137,18 @@ var app = angular.module("myApp", [/*"ngRoute"*/])
             $("#playing_button").show();
         });
     })
-   /* .config(function($routeProvider){
+    .config(function($routeProvider){
         $routeProvider
             .when("/home",{
                 templateUrl:"Templates/home.html",
                 controller:"myController"
             })
+            .when("/music",{
+                templateUrl:"Templates/Music.html",
+                controller:"AudioController"
+            })
             .when("/",{
                 templateUrl:"Templates/home.html",
                 controller:"myController"
             })
-            .when("",{
-                templateUrl:"Templates/home.html",
-                controller:"myController"
-            })
-    });*/
+    });
