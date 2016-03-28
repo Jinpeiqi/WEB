@@ -1,250 +1,60 @@
 <!DOCTYPE html>
-<html ng-app="myModule" lang="en">
+<html lang="en">
 <head>
-    <script src="js/jquery-1.12.1.js"></script>
-    <script src="js/angular.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CSS/Style.css">
-    <script src="js/main.js"></script>
-    <script src="js/JQ.js"></script>
-    <title>Title</title>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular/angular-animate.js"></script>
+    <script src="angular-modal-service.js"></script>
+    <script src="sampleapp.js"></script>
+    <script src="yesno/yesnocontroller.js"></script>
+    <script src="complex/complexcontroller.js"></script>
+    <link href="custom/custom.css" rel="stylesheet">
+    <script src="custom/customcontroller.js"></script>
 </head>
-<body ng-controller="myController" style="font-family: Arial">
-    <div id="currentTime"></div>
-    <div>
-        <img ng-src="{{picture.flag}}" alt="{{picture.Name}}">
-    </div>
-     <br> <br> <br>
-    <div>{{}}</div>
-    <ul>
-        <li ng-repeat="country in countries" ng-init="parentIndex=$index">
-            {{country.name}} - Index={{$index}}
-            <ul>
-                <li ng-repeat="city in country.cities">
-                    {{city.name}} -Parent Index = {{parentIndex}}-Index={{$index}}
-                </li>
-            </ul>
-        </li>
-    </ul>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Likes</th>
-                <th>Dislikes</th>
-                <th>Like/Dislike</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="technology in technologies">
-                <td>{{technology.name}}</td>
-                <td>{{technology.like}}</td>
-                <td>{{technology.dislike}}</td>
-                <td><input type="button" value="Like" ng-click="Like(technology)"></td>
-                <td><input type="button" value="Like" ng-click="Dislike(technology)"></td>
-            </tr>
-        </tbody>
-    </table>
-    <br><br>
-     <select ng-model="sortcolumn">
-         <option value="name">name</option>
-         <option value="gender">gender</option>
-         <option value="-salary">salary</option>
-     </select>
-     <input type="text" ng-model="searchText.name" placeholder="Search name">
-     <input type="text" ng-model="searchText.salary" placeholder="Search salary">
-     <br><br>
-     <input type="checkbox" ng-model="hideSalary">Hide Salary
-     <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>name</th>
-                <th>gender</th>
-                <th ng-hide="hideSalary">salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="salary in salary | orderBy:sortcolumn | filter:searchText" >
-                <td>{{salary.name}}</td>
-                <td>{{salary.gender |gender}}</td>
-                <td ng-hide="hideSalary">{{salary.salary}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div ng-init="employee2=[{ name: 'Ben', gender: 'Male', city: 'London' },
-                             { name: 'Sara', gender: 'Female', city: 'Chennai' },
-                             { name: 'Mark', gender: 'Male', city: 'Chicago' },
-                             { name: 'Pam', gender: 'Female', city: 'London' },
-                             { name: 'Todd', gender: 'Male', city: 'Chennai' }]">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>name</th>
-                <th>gender</th>
-                <th>city</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="employee in employee2">
-                    <td>{{employee.name}}</td>
-                    <td>{{employee.gender}}</td>
-                    <td>{{employee.city}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-     <div>
-         <div class="btn-group btn-group-lg">
-             <button type="button" class="btn btn-primary" date-panelid="panel1">Panel 1</button>
-             <button type="button" class="btn btn-primary" date-panelid="panel2">Panel 2</button>
-             <button type="button" class="btn btn-primary" date-panelid="panel3">Panel 3</button>
-         </div>
-         <br><br>
-         <div class="btn-group btn-group-lg">
-             <button id="bt4" type="button" class="btn btn-success" date-panedil2="panel1">Panel 1</button>
-             <button id="bt5" type="button" class="btn btn-success" date-panedil2="panel2">Panel 2</button>
-             <button id="bt6" type="button" class="btn btn-success" date-panedil2="panel3">Panel 3</button>
-         </div>
-         <label class="checkbox-inline"><input id="myswitch" type="checkbox" value="">Switch</label>
-         <h2>Panel Group</h2>
-         <p>The panel-group class clears the bottom-margin. Try to remove the class and see what happens.</p>
-         <div class="panel-group">
-             <div id="panel1" class="panel panel-default">
-                 <div class="panel-heading">Panel 1 Header</div>
-                 <div class="panel-body">Panel Content</div>
-             </div>
-             <div id="panel2" class="panel panel-default">
-                 <div class="panel-heading">Panel 2 Header</div>
-                 <div class="panel-body">Panel Content</div>
-             </div>
-             <div id="panel3" class="panel panel-default">
-                 <div class="panel-heading">Panel 3 Header</div>
-                 <div class="panel-body">Panel Content</div>
-             </div>
-         </div>
-     </div>
-    <ul class="list">
-        <li>one</li>
-        <li class="special">two</li>
-        <li>three</li>
-        <li>
-            <ul class="sublist">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </li>
-    </ul>
-    <br><br>
-     <div class="tab-panels">
-         <ul class="tabs">
-             <li rel="panel_1" class="active">panel1</li>
-             <li rel="panel_2">panel2</li>
-             <li rel="panel_3">panel3</li>
-             <li rel="panel_4">panel4</li>
-         </ul>
-
-         <div id="panel_1" class="panel active">
-             content1<br/>
-             content1<br/>
-             content1<br/>
-             content1<br/>
-             content1<br/>
-         </div>
-         <div id="panel_2" class="panel">
-             content2<br/>
-             content2<br/>
-             content2<br/>
-             content2<br/>
-             content2<br/>
-         </div>
-         <div id="panel_3" class="panel">
-             content3<br/>
-             content3<br/>
-             content3<br/>
-             content3<br/>
-             content3<br/>
-         </div>
-         <div id="panel_4" class="panel">
-             content4<br/>
-             content4<br/>
-             content4<br/>
-             content4<br/>
-             content4<br/>
-         </div>
-     </div>
-     <div class="tab-panels">
-         <ul class="tabs">
-             <li rel="panel_5" class="active">panel5</li>
-             <li rel="panel_6">panel6</li>
-             <li rel="panel_7">panel7</li>
-             <li rel="panel_8">panel8</li>
-         </ul>
-
-         <div id="panel_5" class="panel active">
-             content5<br/>
-             content5<br/>
-             content5<br/>
-             content5<br/>
-             content5<br/>
-         </div>
-         <div id="panel_6" class="panel">
-             content6<br/>
-             content6<br/>
-             content6<br/>
-             content6<br/>
-             content6<br/>
-         </div>
-         <div id="panel_7" class="panel">
-             content7<br/>
-             content7<br/>
-             content7<br/>
-             content7<br/>
-             content7<br/>
-         </div>
-         <div id="panel_8" class="panel">
-             content8<br/>
-             content8<br/>
-             content8<br/>
-             content8<br/>
-             content8<br/>
-         </div>
-     </div>
-
-
-     <br><br>
-
-    <!--<div id="slider">
-        <ul class="slides">
-            <li class="slide slide1">slide1</li>
-            <li class="slide slide2">slide2</li>
-            <li class="slide slide3">slide3</li>
-            <li class="slide slide4">slide4</li>
-            <li class="slide slide5">slide5</li>
-            <li class="slide slide1">slide1</li>
-        </ul>
-    </div>-->
-    <div ng-controller="simplecontroller">
-        <ul>
-            <li ng-repeat="customers in customers">
-                {{customers.name}}--{{customers.city}}
-            </li>
-        </ul>
-    </div>
-    <div>
-        <audio id="player" controls>
-            <source ng-src="{{music.scr}}" type="audio/mpeg">
-        </audio>
-        <button id="playing_button" type="button" class="btn btn-default" aria-label="Left Align">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-        </button>
-        <button id="stop_button" type="button" class="btn btn-default" aria-label="Left Align">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-        </button>
-    </div>
-
+<body>
+<div ng-app="myapp">
+    <form  name="myform" class="form form-horizontal" ng-controller="myappCtrl" novalidate>
+        <legend>Angular User Validation with Bootstrap Decorations</legend>
+        <div class="control-group" ng-class="{error:!myform.username.$valid}">
+            <label for="inputUsername" class="control-label">Username:</label>
+            <div class="controls">
+                <input type="text" id="inputUsername" name="username" ng-model="username" valid-username />
+                <div class="help-inline">
+                    <span ng-show="!!myform.username.$error.isBlank">Username Required.</span>
+                    <span ng-show="!!myform.username.$error.invalidChars">Username must contain letters &amp; spaces only.</span>
+                    <span ng-show="!!myform.username.$error.invalidLen">Username must be 5-20 characters.</span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group" ng-class="{error:!myform.password.$valid}">
+            <label for="inputPassword" class="control-label">Password:</label>
+            <div class="controls">
+                <input type="text" id="inputPassword" name="password" ng-model="password" valid-password />
+                <div class="help-inline">
+                    <span ng-show="!!myform.password.$error.isBlank">Password Required.</span>
+                    <span ng-show="!!myform.password.$error.isWeak">Must contain one upper &amp; lower case letter and a non-letter (number or symbol.)</span>
+                    <span ng-show="!!myform.password.$error.invalidLen">Must be 8-20 characters.</span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group" ng-class="{error:!myform.password_c.$valid}">
+            <label for="password_c" class="control-label">Confirm Password:</label>
+            <div class="controls">
+                <input type="text" id="password_c" name="password_c" ng-model="password_c" valid-password-c />
+                <div class="help-inline">
+                    <span ng-show="!!myform.password_c.$error.isBlank">Confirmation Required.</span>
+                    <span ng-show="!!myform.password_c.$error.noMatch">Passwords don't match.</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions" ng-show="formAllGood()">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </form></div>
 </body>
+
+
 </html>
